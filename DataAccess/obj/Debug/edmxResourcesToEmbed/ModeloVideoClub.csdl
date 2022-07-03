@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="videoClubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alquiler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="Dias" Type="Int32" Nullable="false" />
+    <Property Name="TipoMovimiento" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="CarnetSocio" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.fk_AlqEmpleado" FromRole="Alquiler" ToRole="Empleado" />
+    <NavigationProperty Name="Socio" Relationship="Self.fk_AlqSocio" FromRole="Alquiler" ToRole="Socio" />
+    <NavigationProperty Name="detAlquiler" Relationship="Self.fk_Alquiler" FromRole="Alquiler" ToRole="detAlquiler" />
+  </EntityType>
+  <EntityType Name="detAlquiler">
+    <Key>
+      <PropertyRef Name="IdDetalle" />
+    </Key>
+    <Property Name="IdDetalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdAlquiler" Type="Int32" Nullable="false" />
+    <Property Name="IdPelicula" Type="Int32" Nullable="false" />
+    <Property Name="precio" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Alquiler" Relationship="Self.fk_Alquiler" FromRole="detAlquiler" ToRole="Alquiler" />
+    <NavigationProperty Name="Pelicula" Relationship="Self.fk_DetPelicula" FromRole="detAlquiler" ToRole="Pelicula" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEmpleado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FechaNac" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CorreoE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Alquiler" Relationship="Self.fk_AlqEmpleado" FromRole="Empleado" ToRole="Alquiler" />
+    <NavigationProperty Name="usuario" Relationship="Self.fk_UsuarioEmp" FromRole="Empleado" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="Pelicula">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Genero" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Valor" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+    <Property Name="Rating" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="detAlquiler" Relationship="Self.fk_DetPelicula" FromRole="Pelicula" ToRole="detAlquiler" />
+  </EntityType>
+  <EntityType Name="Socio">
+    <Key>
+      <PropertyRef Name="Carnet" />
+    </Key>
+    <Property Name="Carnet" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="IdSocio" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FechaNac" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CorreoE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Alquiler" Relationship="Self.fk_AlqSocio" FromRole="Socio" ToRole="Alquiler" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="codigoUsr" />
+    </Key>
+    <Property Name="codigoUsr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEmp" Type="Int32" Nullable="false" />
+    <Property Name="rol" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="passw" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.fk_UsuarioEmp" FromRole="usuario" ToRole="Empleado" />
+  </EntityType>
+  <Association Name="fk_AlqEmpleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Alquiler" Type="Self.Alquiler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Alquiler">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_AlqSocio">
+    <End Role="Socio" Type="Self.Socio" Multiplicity="1" />
+    <End Role="Alquiler" Type="Self.Alquiler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Socio">
+        <PropertyRef Name="Carnet" />
+      </Principal>
+      <Dependent Role="Alquiler">
+        <PropertyRef Name="CarnetSocio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Alquiler">
+    <End Role="Alquiler" Type="Self.Alquiler" Multiplicity="1" />
+    <End Role="detAlquiler" Type="Self.detAlquiler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alquiler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="detAlquiler">
+        <PropertyRef Name="IdAlquiler" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_DetPelicula">
+    <End Role="Pelicula" Type="Self.Pelicula" Multiplicity="1" />
+    <End Role="detAlquiler" Type="Self.detAlquiler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pelicula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="detAlquiler">
+        <PropertyRef Name="IdPelicula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UsuarioEmp">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="IdEmp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="videoClubEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alquiler" EntityType="Self.Alquiler" />
+    <EntitySet Name="detAlquiler" EntityType="Self.detAlquiler" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+    <EntitySet Name="Pelicula" EntityType="Self.Pelicula" />
+    <EntitySet Name="Socio" EntityType="Self.Socio" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" />
+    <AssociationSet Name="fk_AlqEmpleado" Association="Self.fk_AlqEmpleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Alquiler" EntitySet="Alquiler" />
+    </AssociationSet>
+    <AssociationSet Name="fk_AlqSocio" Association="Self.fk_AlqSocio">
+      <End Role="Socio" EntitySet="Socio" />
+      <End Role="Alquiler" EntitySet="Alquiler" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Alquiler" Association="Self.fk_Alquiler">
+      <End Role="Alquiler" EntitySet="Alquiler" />
+      <End Role="detAlquiler" EntitySet="detAlquiler" />
+    </AssociationSet>
+    <AssociationSet Name="fk_DetPelicula" Association="Self.fk_DetPelicula">
+      <End Role="Pelicula" EntitySet="Pelicula" />
+      <End Role="detAlquiler" EntitySet="detAlquiler" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UsuarioEmp" Association="Self.fk_UsuarioEmp">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <FunctionImport Name="EliminarEmpleado">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="output" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarPelicula">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarSocio">
+      <Parameter Name="Carnet" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarEmpleado">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="Sexo" Mode="In" Type="String" />
+      <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Celular" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="CorreoE" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="output" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarPelicula">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Genero" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Valor" Mode="In" Type="Decimal" />
+      <Parameter Name="Rating" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarSocio">
+      <Parameter Name="Carnet" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="Sexo" Mode="In" Type="String" />
+      <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+      <Parameter Name="Telefono" Mode="In" Type="Int32" />
+      <Parameter Name="Celular" Mode="In" Type="Int32" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="CorreoE" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="NuevaPelicula">
+      <Parameter Name="Genero" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Valor" Mode="In" Type="Decimal" />
+      <Parameter Name="Rating" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="NuevoEmpleado">
+      <Parameter Name="IdEmpleado" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="Sexo" Mode="In" Type="String" />
+      <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Celular" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="CorreoE" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="output" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="NuevoSocio">
+      <Parameter Name="Carnet" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="Sexo" Mode="In" Type="String" />
+      <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+      <Parameter Name="Telefono" Mode="In" Type="Int32" />
+      <Parameter Name="Celular" Mode="In" Type="Int32" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="CorreoE" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

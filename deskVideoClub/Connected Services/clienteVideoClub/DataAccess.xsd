@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DataAccess" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataAccess" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfEmpleado">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Empleado" nillable="true" type="tns:Empleado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmpleado" nillable="true" type="tns:ArrayOfEmpleado" />
+  <xs:complexType name="Empleado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alquiler" nillable="true" type="tns:ArrayOfAlquiler" />
+      <xs:element minOccurs="0" name="Apellido1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Apellido2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Celular" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CorreoE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaNac" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdEmpleado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" nillable="true" type="tns:ArrayOfusuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Empleado" nillable="true" type="tns:Empleado" />
+  <xs:complexType name="ArrayOfAlquiler">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alquiler" nillable="true" type="tns:Alquiler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlquiler" nillable="true" type="tns:ArrayOfAlquiler" />
+  <xs:complexType name="Alquiler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarnetSocio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dias" type="xs:int" />
+      <xs:element minOccurs="0" name="Empleado" nillable="true" type="tns:Empleado" />
+      <xs:element minOccurs="0" name="Fecha" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdEmpleado" type="xs:int" />
+      <xs:element minOccurs="0" name="Socio" nillable="true" type="tns:Socio" />
+      <xs:element minOccurs="0" name="TipoMovimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="detAlquiler" nillable="true" type="tns:ArrayOfdetAlquiler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alquiler" nillable="true" type="tns:Alquiler" />
+  <xs:complexType name="Socio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alquiler" nillable="true" type="tns:ArrayOfAlquiler" />
+      <xs:element minOccurs="0" name="Apellido1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Apellido2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Carnet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Celular" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CorreoE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaNac" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdSocio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Socio" nillable="true" type="tns:Socio" />
+  <xs:complexType name="ArrayOfdetAlquiler">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="detAlquiler" nillable="true" type="tns:detAlquiler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdetAlquiler" nillable="true" type="tns:ArrayOfdetAlquiler" />
+  <xs:complexType name="detAlquiler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alquiler" nillable="true" type="tns:Alquiler" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdAlquiler" type="xs:int" />
+      <xs:element minOccurs="0" name="IdDetalle" type="xs:int" />
+      <xs:element minOccurs="0" name="IdPelicula" type="xs:int" />
+      <xs:element minOccurs="0" name="Pelicula" nillable="true" type="tns:Pelicula" />
+      <xs:element minOccurs="0" name="precio" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="detAlquiler" nillable="true" type="tns:detAlquiler" />
+  <xs:complexType name="Pelicula">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Genero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valor" type="xs:decimal" />
+      <xs:element minOccurs="0" name="detAlquiler" nillable="true" type="tns:ArrayOfdetAlquiler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pelicula" nillable="true" type="tns:Pelicula" />
+  <xs:complexType name="ArrayOfusuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="usuario" nillable="true" type="tns:usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfusuario" nillable="true" type="tns:ArrayOfusuario" />
+  <xs:complexType name="usuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Empleado" nillable="true" type="tns:Empleado" />
+      <xs:element minOccurs="0" name="IdEmp" type="xs:int" />
+      <xs:element minOccurs="0" name="codigoUsr" type="xs:int" />
+      <xs:element minOccurs="0" name="passw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rol" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="usuario" nillable="true" type="tns:usuario" />
+</xs:schema>

@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="videoClubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alquiler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Dias" Type="int" Nullable="false" />
+    <Property Name="TipoMovimiento" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="IdEmpleado" Type="int" Nullable="false" />
+    <Property Name="CarnetSocio" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="detAlquiler">
+    <Key>
+      <PropertyRef Name="IdDetalle" />
+    </Key>
+    <Property Name="IdDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAlquiler" Type="int" Nullable="false" />
+    <Property Name="IdPelicula" Type="int" Nullable="false" />
+    <Property Name="precio" Type="smallmoney" Nullable="false" />
+    <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEmpleado" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Apellido1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Apellido2" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Sexo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FechaNac" Type="date" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="9" />
+    <Property Name="Celular" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="255" />
+    <Property Name="CorreoE" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pelicula">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Genero" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Valor" Type="smallmoney" Nullable="false" />
+    <Property Name="Rating" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Socio">
+    <Key>
+      <PropertyRef Name="Carnet" />
+    </Key>
+    <Property Name="Carnet" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="IdSocio" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Apellido1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Apellido2" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Sexo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FechaNac" Type="date" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="9" />
+    <Property Name="Celular" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="255" />
+    <Property Name="CorreoE" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="codigoUsr" />
+    </Key>
+    <Property Name="codigoUsr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEmp" Type="int" Nullable="false" />
+    <Property Name="rol" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="passw" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="fk_AlqEmpleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Alquiler" Type="Self.Alquiler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Alquiler">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_AlqSocio">
+    <End Role="Socio" Type="Self.Socio" Multiplicity="1" />
+    <End Role="Alquiler" Type="Self.Alquiler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Socio">
+        <PropertyRef Name="Carnet" />
+      </Principal>
+      <Dependent Role="Alquiler">
+        <PropertyRef Name="CarnetSocio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Alquiler">
+    <End Role="Alquiler" Type="Self.Alquiler" Multiplicity="1" />
+    <End Role="detAlquiler" Type="Self.detAlquiler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alquiler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="detAlquiler">
+        <PropertyRef Name="IdAlquiler" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_DetPelicula">
+    <End Role="Pelicula" Type="Self.Pelicula" Multiplicity="1" />
+    <End Role="detAlquiler" Type="Self.detAlquiler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pelicula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="detAlquiler">
+        <PropertyRef Name="IdPelicula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UsuarioEmp">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="IdEmp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="EliminarEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="output" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="EliminarPelicula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EliminarSocio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Carnet" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificarEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido1" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido2" Type="varchar" Mode="In" />
+    <Parameter Name="Sexo" Type="char" Mode="In" />
+    <Parameter Name="FechaNac" Type="date" Mode="In" />
+    <Parameter Name="Telefono" Type="varchar" Mode="In" />
+    <Parameter Name="Celular" Type="varchar" Mode="In" />
+    <Parameter Name="Direccion" Type="varchar" Mode="In" />
+    <Parameter Name="CorreoE" Type="varchar" Mode="In" />
+    <Parameter Name="Estado" Type="char" Mode="In" />
+    <Parameter Name="output" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="ModificarPelicula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Genero" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Valor" Type="smallmoney" Mode="In" />
+    <Parameter Name="Rating" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificarSocio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Carnet" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido1" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido2" Type="varchar" Mode="In" />
+    <Parameter Name="Sexo" Type="char" Mode="In" />
+    <Parameter Name="FechaNac" Type="date" Mode="In" />
+    <Parameter Name="Telefono" Type="int" Mode="In" />
+    <Parameter Name="Celular" Type="int" Mode="In" />
+    <Parameter Name="Direccion" Type="varchar" Mode="In" />
+    <Parameter Name="CorreoE" Type="varchar" Mode="In" />
+    <Parameter Name="Estado" Type="char" Mode="In" />
+  </Function>
+  <Function Name="NuevaPelicula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Genero" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Valor" Type="smallmoney" Mode="In" />
+    <Parameter Name="Rating" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="NuevoEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpleado" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido1" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido2" Type="varchar" Mode="In" />
+    <Parameter Name="Sexo" Type="char" Mode="In" />
+    <Parameter Name="FechaNac" Type="date" Mode="In" />
+    <Parameter Name="Telefono" Type="varchar" Mode="In" />
+    <Parameter Name="Celular" Type="varchar" Mode="In" />
+    <Parameter Name="Direccion" Type="varchar" Mode="In" />
+    <Parameter Name="CorreoE" Type="varchar" Mode="In" />
+    <Parameter Name="Estado" Type="char" Mode="In" />
+    <Parameter Name="output" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="NuevoSocio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Carnet" Type="char" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido1" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido2" Type="varchar" Mode="In" />
+    <Parameter Name="Sexo" Type="char" Mode="In" />
+    <Parameter Name="FechaNac" Type="date" Mode="In" />
+    <Parameter Name="Telefono" Type="int" Mode="In" />
+    <Parameter Name="Celular" Type="int" Mode="In" />
+    <Parameter Name="Direccion" Type="varchar" Mode="In" />
+    <Parameter Name="CorreoE" Type="varchar" Mode="In" />
+    <Parameter Name="Estado" Type="char" Mode="In" />
+  </Function>
+  <EntityContainer Name="videoClubModelStoreContainer">
+    <EntitySet Name="Alquiler" EntityType="Self.Alquiler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="detAlquiler" EntityType="Self.detAlquiler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pelicula" EntityType="Self.Pelicula" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Socio" EntityType="Self.Socio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_AlqEmpleado" Association="Self.fk_AlqEmpleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Alquiler" EntitySet="Alquiler" />
+    </AssociationSet>
+    <AssociationSet Name="fk_AlqSocio" Association="Self.fk_AlqSocio">
+      <End Role="Socio" EntitySet="Socio" />
+      <End Role="Alquiler" EntitySet="Alquiler" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Alquiler" Association="Self.fk_Alquiler">
+      <End Role="Alquiler" EntitySet="Alquiler" />
+      <End Role="detAlquiler" EntitySet="detAlquiler" />
+    </AssociationSet>
+    <AssociationSet Name="fk_DetPelicula" Association="Self.fk_DetPelicula">
+      <End Role="Pelicula" EntitySet="Pelicula" />
+      <End Role="detAlquiler" EntitySet="detAlquiler" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UsuarioEmp" Association="Self.fk_UsuarioEmp">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

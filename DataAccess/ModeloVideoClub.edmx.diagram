@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e6acda2f69f74e6897633a04e0de5c1b" Name="Diagram1">
+        <EntityTypeShape EntityType="videoClubModel.Alquiler" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="videoClubModel.detAlquiler" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="videoClubModel.Empleado" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="videoClubModel.Pelicula" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="videoClubModel.Socio" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="videoClubModel.usuario" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="videoClubModel.fk_AlqEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="videoClubModel.fk_AlqSocio" ManuallyRouted="false" />
+        <AssociationConnector Association="videoClubModel.fk_Alquiler" ManuallyRouted="false" />
+        <AssociationConnector Association="videoClubModel.fk_DetPelicula" ManuallyRouted="false" />
+        <AssociationConnector Association="videoClubModel.fk_UsuarioEmp" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="srvEmpleado" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DataAccess" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IsrvEmpleado_ListarEmpleados_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpleados" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_ListarEmpleados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpleadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_ListarEmpleado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_ListarEmpleado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_ListarEmpleadosNom_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpleadosNom" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_ListarEmpleadosNom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpleadosNomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_NuevoEmpleado_InputMessage">
+    <wsdl:part name="parameters" element="tns:NuevoEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_NuevoEmpleado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NuevoEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_ModificarEmpleado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_ModificarEmpleado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_EliminarEmpleado_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_EliminarEmpleado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_ListarEmpleadoFechaNac_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpleadoFechaNac" />
+  </wsdl:message>
+  <wsdl:message name="IsrvEmpleado_ListarEmpleadoFechaNac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpleadoFechaNacResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IsrvEmpleado">
+    <wsdl:operation name="ListarEmpleados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IsrvEmpleado/ListarEmpleados" message="tns:IsrvEmpleado_ListarEmpleados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IsrvEmpleado/ListarEmpleadosResponse" message="tns:IsrvEmpleado_ListarEmpleados_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpleado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IsrvEmpleado/ListarEmpleado" message="tns:IsrvEmpleado_ListarEmpleado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IsrvEmpleado/ListarEmpleadoResponse" message="tns:IsrvEmpleado_ListarEmpleado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpleadosNom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IsrvEmpleado/ListarEmpleadosNom" message="tns:IsrvEmpleado_ListarEmpleadosNom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IsrvEmpleado/ListarEmpleadosNomResponse" message="tns:IsrvEmpleado_ListarEmpleadosNom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NuevoEmpleado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IsrvEmpleado/NuevoEmpleado" message="tns:IsrvEmpleado_NuevoEmpleado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IsrvEmpleado/NuevoEmpleadoResponse" message="tns:IsrvEmpleado_NuevoEmpleado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEmpleado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IsrvEmpleado/ModificarEmpleado" message="tns:IsrvEmpleado_ModificarEmpleado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IsrvEmpleado/ModificarEmpleadoResponse" message="tns:IsrvEmpleado_ModificarEmpleado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarEmpleado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IsrvEmpleado/EliminarEmpleado" message="tns:IsrvEmpleado_EliminarEmpleado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IsrvEmpleado/EliminarEmpleadoResponse" message="tns:IsrvEmpleado_EliminarEmpleado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpleadoFechaNac">
+      <wsdl:input wsaw:Action="http://tempuri.org/IsrvEmpleado/ListarEmpleadoFechaNac" message="tns:IsrvEmpleado_ListarEmpleadoFechaNac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IsrvEmpleado/ListarEmpleadoFechaNacResponse" message="tns:IsrvEmpleado_ListarEmpleadoFechaNac_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IsrvEmpleado" type="tns:IsrvEmpleado">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarEmpleados">
+      <soap:operation soapAction="http://tempuri.org/IsrvEmpleado/ListarEmpleados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpleado">
+      <soap:operation soapAction="http://tempuri.org/IsrvEmpleado/ListarEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpleadosNom">
+      <soap:operation soapAction="http://tempuri.org/IsrvEmpleado/ListarEmpleadosNom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NuevoEmpleado">
+      <soap:operation soapAction="http://tempuri.org/IsrvEmpleado/NuevoEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEmpleado">
+      <soap:operation soapAction="http://tempuri.org/IsrvEmpleado/ModificarEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarEmpleado">
+      <soap:operation soapAction="http://tempuri.org/IsrvEmpleado/EliminarEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpleadoFechaNac">
+      <soap:operation soapAction="http://tempuri.org/IsrvEmpleado/ListarEmpleadoFechaNac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="srvEmpleado">
+    <wsdl:port name="BasicHttpBinding_IsrvEmpleado" binding="tns:BasicHttpBinding_IsrvEmpleado">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/DataService/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

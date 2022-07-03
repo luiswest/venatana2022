@@ -1,0 +1,15 @@
+C:\Users\luiwe\source\repos\VideoClub\DataService\bin\Debug\DataService.dll.config
+C:\Users\luiwe\source\repos\VideoClub\DataService\bin\Debug\DataService.dll
+C:\Users\luiwe\source\repos\VideoClub\DataService\bin\Debug\DataService.pdb
+C:\Users\luiwe\source\repos\VideoClub\DataService\bin\Debug\DataAccess.dll
+C:\Users\luiwe\source\repos\VideoClub\DataService\bin\Debug\EntityFramework.dll
+C:\Users\luiwe\source\repos\VideoClub\DataService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\luiwe\source\repos\VideoClub\DataService\bin\Debug\DataAccess.pdb
+C:\Users\luiwe\source\repos\VideoClub\DataService\bin\Debug\DataAccess.dll.config
+C:\Users\luiwe\source\repos\VideoClub\DataService\bin\Debug\EntityFramework.xml
+C:\Users\luiwe\source\repos\VideoClub\DataService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\luiwe\source\repos\VideoClub\DataService\obj\Debug\DataService.csproj.AssemblyReference.cache
+C:\Users\luiwe\source\repos\VideoClub\DataService\obj\Debug\DataService.csproj.CoreCompileInputs.cache
+C:\Users\luiwe\source\repos\VideoClub\DataService\obj\Debug\DataService.csproj.CopyComplete
+C:\Users\luiwe\source\repos\VideoClub\DataService\obj\Debug\DataService.dll
+C:\Users\luiwe\source\repos\VideoClub\DataService\obj\Debug\DataService.pdb

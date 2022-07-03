@@ -1,0 +1,11 @@
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\bin\Debug\deskVideoClub.exe.config
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\bin\Debug\deskVideoClub.exe
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\bin\Debug\deskVideoClub.pdb
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\obj\Debug\deskVideoClub.csproj.AssemblyReference.cache
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\obj\Debug\deskVideoClub.csproj.SuggestedBindingRedirects.cache
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\obj\Debug\deskVideoClub.Properties.Resources.resources
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\obj\Debug\deskVideoClub.csproj.GenerateResource.cache
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\obj\Debug\deskVideoClub.csproj.CoreCompileInputs.cache
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\obj\Debug\deskVideoClub.exe
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\obj\Debug\deskVideoClub.pdb
+C:\Users\luiwe\source\repos\VideoClub\deskVideoClub\obj\Debug\deskVideoClub.Form1.resources

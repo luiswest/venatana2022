@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="videoClubModelStoreContainer" CdmEntityContainer="videoClubEntities1">
+    <EntitySetMapping Name="Alquiler">
+      <EntityTypeMapping TypeName="videoClubModel.Alquiler">
+        <MappingFragment StoreEntitySet="Alquiler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Dias" ColumnName="Dias" />
+          <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="CarnetSocio" ColumnName="CarnetSocio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detAlquiler">
+      <EntityTypeMapping TypeName="videoClubModel.detAlquiler">
+        <MappingFragment StoreEntitySet="detAlquiler">
+          <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+          <ScalarProperty Name="IdAlquiler" ColumnName="IdAlquiler" />
+          <ScalarProperty Name="IdPelicula" ColumnName="IdPelicula" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="videoClubModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="CorreoE" ColumnName="CorreoE" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pelicula">
+      <EntityTypeMapping TypeName="videoClubModel.Pelicula">
+        <MappingFragment StoreEntitySet="Pelicula">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Socio">
+      <EntityTypeMapping TypeName="videoClubModel.Socio">
+        <MappingFragment StoreEntitySet="Socio">
+          <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+          <ScalarProperty Name="IdSocio" ColumnName="IdSocio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="CorreoE" ColumnName="CorreoE" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="videoClubModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="codigoUsr" ColumnName="codigoUsr" />
+          <ScalarProperty Name="IdEmp" ColumnName="IdEmp" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="passw" ColumnName="passw" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="EliminarEmpleado" FunctionName="videoClubModel.Store.EliminarEmpleado" />
+    <FunctionImportMapping FunctionImportName="EliminarPelicula" FunctionName="videoClubModel.Store.EliminarPelicula" />
+    <FunctionImportMapping FunctionImportName="EliminarSocio" FunctionName="videoClubModel.Store.EliminarSocio" />
+    <FunctionImportMapping FunctionImportName="ModificarEmpleado" FunctionName="videoClubModel.Store.ModificarEmpleado" />
+    <FunctionImportMapping FunctionImportName="ModificarPelicula" FunctionName="videoClubModel.Store.ModificarPelicula" />
+    <FunctionImportMapping FunctionImportName="ModificarSocio" FunctionName="videoClubModel.Store.ModificarSocio" />
+    <FunctionImportMapping FunctionImportName="NuevaPelicula" FunctionName="videoClubModel.Store.NuevaPelicula" />
+    <FunctionImportMapping FunctionImportName="NuevoEmpleado" FunctionName="videoClubModel.Store.NuevoEmpleado" />
+    <FunctionImportMapping FunctionImportName="NuevoSocio" FunctionName="videoClubModel.Store.NuevoSocio" />
+  </EntityContainerMapping>
+</Mapping>
